@@ -1,0 +1,55 @@
+<!doctype html>
+<html ng-app="gameApp">
+  <head>
+    <title>Game - Achieve The Target</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="game.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="game.css">
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="text-center">Achieve The Target</h2>
+      <h5 class="text-center text-info">Do you want to challenge your grey matter?</h5>
+      <h5 class="text-center text-info">Then Play This Amazing Game!!!</h5>
+      <h5 class="text-center text-info">Achieve your target by adding and deleting random numbers whose sum is equal to give Target Score</h5>
+      <div class="gameDiv" ng-controller="GameController">
+        <h5 class="hameHeading">Your Target Score is</h5>
+        <h3 class="targetScore">{{targetScore}}</h3>
+        <button class="btn btn-info resetBtn" ng-click="resetGame()">Reset Target</button>
+        <button class="btn btn-success addNumber" ng-click="randomNumberGenerator()">Generate A Random Number</button>
+        <table class="table table-responsive table-bordered">
+          <tr ng-repeat="number in generatedNumbers track by $index">
+            <td>
+              <button class="btn btn-danger removeNumber" ng-click="removeGeneratedNumber($index)">Remove</button>
+            </td>
+            <td>
+              {{number}}
+            </td>
+          </tr>
+          <tr class="totalRow" ng-if="generatedNumbers.length != 0">
+            <td>
+              <strong>Total Sum : </strong>
+            </td>
+            <td>
+              <strong>{{total}}</strong>
+            </td>
+          </tr>
+        </table>
+
+        <div class="sucessDiv alert alert-info" ng-if="total < targetScore && generatedNumbers.length != 0">
+          <p>Generate one more random number.</p>
+        </div>
+        <div class="sucessDiv alert alert-danger" ng-if="total > targetScore">
+          <p>Total is greater than Target.</p>
+          <p>Remove appropriate Number from Table to achieve your target.</p>
+        </div>
+        <div class="sucessDiv alert alert-success" ng-if="total == targetScore">
+          <img src="img/smiley.png" class="smiley">
+          <h2 class="successMsg">Congratulations!!</h2>
+          <h4>You Won The Game</h4>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

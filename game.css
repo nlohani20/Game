@@ -1,0 +1,52 @@
+body{
+	background-color: #f2f2f2;
+}
+.gameDiv{
+	background-color: #fff;
+    padding: 2em;
+    margin: 2em;
+    box-shadow: 0px 0px 5px #ddd;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+}
+.hameHeading {
+    text-align: center;
+    font-size: 20px;
+    color: #3e3e3e;
+}
+.targetScore{
+	color: blue;
+    text-align: center;
+    font-size: 34px;
+    font-weight: bold;
+}
+.addNumber {
+    margin: 1em;
+}
+table{
+	text-align: left;
+	width: 50% !important;
+    margin-left: 25%;
+}
+table td{
+	width: 50%;
+}
+.sucessDiv {
+    width: 50%;
+    margin-left: 25%;
+}
+.resetBtn {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+}
+.totalRow{
+	background-color: #e8e8e8;
+}
+strong {
+    color: blue;
+}
+img.smiley {
+    max-width: 40%;
+}
