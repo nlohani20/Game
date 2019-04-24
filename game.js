@@ -5,15 +5,15 @@ app.controller('GameController', ['$scope', function($scope) {
   $scope.total = 0;
 
   // Function which returns Random number between 0 to 100
-  function getRandomNumber(){
+  $scope.getRandomNumber = function(){
     return Math.round(Math.random() * 100);
   }
 
   // Setting Target to some Random number
-  $scope.targetScore = getRandomNumber();
+  $scope.targetScore = $scope.getRandomNumber();
 
   // Function which returns total sum of generated numbers
-  // function getSum(){
+  // $scope.getSum = function(){
   //   $scope.totalSum = 0;
   //   $scope.arrLen = $scope.generatedNumbers.length;
   //   for(var i=0; i<$scope.arrLen; i++){
@@ -24,7 +24,7 @@ app.controller('GameController', ['$scope', function($scope) {
     
   // Function which generate random number and push it into Array of generatedNumbers
   $scope.randomNumberGenerator = function(){
-    var randomNumber = getRandomNumber();
+    var randomNumber = $scope.getRandomNumber();
     $scope.generatedNumbers.push(randomNumber);
     $scope.total += randomNumber;
   }
@@ -37,7 +37,7 @@ app.controller('GameController', ['$scope', function($scope) {
 
   // Function which reset the whole Game
   $scope.resetGame = function(){
-    $scope.targetScore = getRandomNumber();
+    $scope.targetScore = $scope.getRandomNumber();
     $scope.generatedNumbers = [];
     $scope.total = 0;
   }
