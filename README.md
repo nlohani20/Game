@@ -1,3 +1,4 @@
 # Game
-Achieve The Target
+
+Achieve The Target.
 A simple Game Created Using HTML, CSS, and Javascript
